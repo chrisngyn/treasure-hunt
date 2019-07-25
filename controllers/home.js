@@ -112,6 +112,16 @@ exports.getFinish = (req, res) => {
 	res.redirect('/');
 };
 
+/*
+Method that logs out user and tells them that the hunt is closed for the day
+*/
+exports.getClosed = (req, res) => {
+	req.logout();
+	req.flash('errors', { msg: 'Done for the day log back in tmrw at 12am to keep playing'})
+	res.redirect('/');
+}
+
+
 function getTweetsFromUser(user, callback) {
 	T.get('statuses/user_timeline', { screen_name: user, count: 1},  function (err, data, response) {
 		if(err)
