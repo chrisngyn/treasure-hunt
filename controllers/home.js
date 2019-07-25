@@ -15,7 +15,7 @@ const T = new Twit({
 * Home page.
 */
 exports.index = (req, res) => {
-	var fullScore = 666;
+	var fullScore = 10;
 	var challengesObj = {
 		'0': false,
 		'1': false,
@@ -39,7 +39,7 @@ exports.index = (req, res) => {
 						return res.redirect('/');
 					}
 					if(team){
-						teamScorePer = Math.round((team.score/fullScore) * 100);
+						teamScorePer = Math.round((team.totalCompleted/fullScore) * 100);
 						var teamChallenges = team.challenges;
 						res.render('dashboard', {
 							title: 'Dashboard',
