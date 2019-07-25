@@ -117,7 +117,7 @@ Method that logs out user and tells them that the hunt is closed for the day
 */
 exports.getClosed = (req, res) => {
 	req.logout();
-	req.flash('errors', { msg: 'Done for the day log back in tmrw at 12am to keep playing'})
+	req.flash('errors', { msg: 'Done for the day log back in tommorow at 12am to keep playing'})
 	res.redirect('/');
 }
 
