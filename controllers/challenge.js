@@ -86,6 +86,13 @@ const _ = require('lodash');
         }
         team.totalCompleted += 1;
         team.score += challenge.points;
+        
+        // Below depleted score by predetermined amount 
+        if(challenge.depletionLeft > 0){
+          challenge.points -= challenge.depletionBy;
+          challenge.depletionLeft -= challenge.depletionBy;
+        }
+        
         var nnum = parseInt(num);
         var buffArr = _.concat(team.challenges);
         buffArr[nnum] = true;
