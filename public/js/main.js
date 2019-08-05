@@ -47,7 +47,7 @@ function initializeClock(id, endtime) {
 function CheckDate(){
     var today = new Date();
     if (today.getHours() <= 12 || today.getHours > 17){
-        window.location = 'http://treasurehunt.cshub.ca/Closed';
+        window.location = 'http://treasurehunt.cshub.ca/closed';
     }
 
 }

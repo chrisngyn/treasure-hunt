@@ -134,7 +134,7 @@ app.post('/join', passportConfig.isAuthenticated, teamController.postJoin);
 app.get('/create', passportConfig.isAuthenticated, teamController.getCreate);
 app.post('/create', passportConfig.isAuthenticated, teamController.postCreate);
 app.get('/finish', passportConfig.isAuthenticated, homeController.getFinish);
-app.get('Closed', passportConfig.isAuthenticated, homeController.getClosed);
+app.get('/closed', passportConfig.isAuthenticated, homeController.getClosed);
 
 app.get('/code/mS955sz7Xef642x1', challengeController.getChallengeCode);
 app.get('/code/5O3GJ4A2kkvREKB2', challengeController.getChallengeCode);

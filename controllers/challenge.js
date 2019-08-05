@@ -90,7 +90,7 @@ const _ = require('lodash');
         // Below depleted score by predetermined amount 
         if(challenge.depletionLeft > 0){
           challenge.points -= challenge.depletionBy;
-          challenge.depletionLeft -= challenge.depletionBy;
+          challenge.depletionLeft -= 1;
         }
         
         var nnum = parseInt(num);
