@@ -44,6 +44,13 @@ function initializeClock(id, endtime) {
     var timeinterval = setInterval(updateClock, 1000);
 }
 
+function CheckDate(){
+    var today = new Date();
+    if (today.getHours() <= 12 || today.getHours > 17){
+        window.location = 'http://treasurehunt.cshub.ca/closed';
+    }
+
+}
 //var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
 // EST: GMT-04:00 (Daylight Saving) | EST: GMT-04:00 (Default)
 // var deadline = 'May 20 2016 18:00:00 GMT-04:00';

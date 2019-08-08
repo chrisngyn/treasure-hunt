@@ -84,7 +84,15 @@ const _ = require('lodash');
           req.flash('errors', { msg: 'Unexpected Error Occurred. Contact Webmaster ASAP.' });
           return res.redirect('/');
         }
+        team.totalCompleted += 1;
         team.score += challenge.points;
+        
+        // Below depleted score by predetermined amount 
+        if(challenge.depletionLeft > 0){
+          challenge.points -= challenge.depletionBy;
+          challenge.depletionLeft -= 1;
+        }
+        
         var nnum = parseInt(num);
         var buffArr = _.concat(team.challenges);
         buffArr[nnum] = true;

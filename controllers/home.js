@@ -15,7 +15,7 @@ const T = new Twit({
 * Home page.
 */
 exports.index = (req, res) => {
-	var fullScore = 666;
+	var fullScore = 10;
 	var challengesObj = {
 		'0': false,
 		'1': false,
@@ -39,7 +39,7 @@ exports.index = (req, res) => {
 						return res.redirect('/');
 					}
 					if(team){
-						teamScorePer = Math.round((team.score/fullScore) * 100);
+						teamScorePer = Math.round((team.totalCompleted/fullScore) * 100);
 						var teamChallenges = team.challenges;
 						res.render('dashboard', {
 							title: 'Dashboard',
@@ -111,6 +111,16 @@ exports.getFinish = (req, res) => {
 	req.flash('errors', { msg: 'Treasure Hunt has come to an end. Thank you for participating.' });
 	res.redirect('/');
 };
+
+/*
+Method that logs out user and tells them that the hunt is closed for the day
+*/
+exports.getClosed = (req, res) => {
+	req.logout();
+	req.flash('errors', { msg: 'Done for the day log back in tommorow at 12am to keep playing'})
+	res.redirect('/');
+}
+
 
 function getTweetsFromUser(user, callback) {
 	T.get('statuses/user_timeline', { screen_name: user, count: 1},  function (err, data, response) {
